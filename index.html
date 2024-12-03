@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Treinos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div id="main-page">
+      <h1>Portal de Treinos</h1>
+      <button onclick="showLogin('student')">Acesso Aluno</button>
+      <button onclick="showLogin('teacher')">Acesso Professor</button>
+    </div>
+
+    <div id="login-student" class="hidden">
+      <h2>Login Aluno</h2>
+      <input type="text" id="student-username" placeholder="Usuário">
+      <input type="password" id="student-password" placeholder="Senha">
+      <button onclick="login('student')">Entrar</button>
+      <button onclick="returnToMain()">Voltar</button>
+    </div>
+
+    <div id="login-teacher" class="hidden">
+      <h2>Login Professor</h2>
+      <input type="text" id="teacher-username" placeholder="Usuário">
+      <input type="password" id="teacher-password" placeholder="Senha">
+      <button onclick="login('teacher')">Entrar</button>
+      <button onclick="returnToMain()">Voltar</button>
+    </div>
+
+    <div id="student-dashboard" class="hidden">
+      <h2>Planilha de Treinos</h2>
+      <iframe src="planilha-aluno.xlsx" width="100%" height="400"></iframe>
+      <button onclick="returnToMain()">Voltar</button>
+    </div>
+
+    <div id="teacher-dashboard" class="hidden">
+      <h2>Professor</h2>
+      <button onclick="showSection('create-student')">Criar Login Aluno</button>
+      <button onclick="showSection('upload-planilha')">Publicar Planilha</button>
+      <button onclick="showSection('delete-student')">Excluir Aluno</button>
+      <button onclick="showSection('edit-student')">Editar Dados</button>
+      <button onclick="returnToMain()">Voltar</button>
+
+      <div id="create-student" class="hidden">
+        <h3>Criar Login Aluno</h3>
+        <input type="text" placeholder="Novo Usuário">
+        <input type="password" placeholder="Nova Senha">
+        <button>Salvar</button>
+      </div>
+
+      <div id="upload-planilha" class="hidden">
+        <h3>Publicar Planilha</h3>
+        <input type="file" accept=".xlsx">
+        <button>Enviar</button>
+      </div>
+
+      <div id="delete-student" class="hidden">
+        <h3>Excluir Aluno</h3>
+        <input type="text" placeholder="Usuário do Aluno">
+        <button>Excluir</button>
+      </div>
+
+      <div id="edit-student" class="hidden">
+        <h3>Editar Dados</h3>
+        <input type="text" placeholder="Usuário do Aluno">
+        <input type="text" placeholder="Novo Nome">
+        <input type="password" placeholder="Nova Senha">
+        <button>Atualizar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
